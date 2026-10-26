@@ -8,7 +8,9 @@ describe('顧客購買流程 UAT 測試', () => {
     cy.get('#checkout-btn').click();
 
     // 💡 3. 驗證最終結果：畫面有沒有成功跳轉，且顯示感謝購買
+        // 讀取瀏覽器當前的網址（URL），並斷言（Assert）預期它必須包含 '/checkout-success' 字樣
     cy.url().should('include', '/checkout-success');
+        // 抓取頁面上的第一個 h1 標籤，並斷言驗證其內文必須包含「感謝您的購買！」這段文字
     cy.get('h1').should('contain', '感謝您的購買！');
   });
 });
